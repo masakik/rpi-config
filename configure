@@ -1,0 +1,40 @@
+#!/bin/bash
+./rwfs
+
+now=`date +%s`
+apttime=`stat -c %Y /var/cache/apt/`
+
+diff=`expr $now - $apttime`
+
+if [ $diff -gt 1800 ]; then 
+  apt-get update
+fi
+#echo $diff
+
+apt-get install -y $(cat ./applist)
+
+# add alias to bashrc
+f="/etc/bash.bashrc"
+echo -n "ls colors: "
+if grep -q "alias ls=" $f; then   
+   echo "already done"
+else
+   echo "alias ls=\"ls --color\"" >>$f
+   echo "done"
+fi
+
+echo -n "ls -> ll alias: "
+if grep -q "alias ll=" $f; then   
+   echo "already done"
+else
+   echo "alias ll=\"ls -la\"" >>$f
+   echo "done"
+fi
+
+# prevent fsck from running
+tune2fs -c -1 -i 0 /dev/mmcblk0p2 # /
+
+
+./rfs
+
+
