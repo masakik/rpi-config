@@ -9,3 +9,8 @@ logs put on tmpfs
 
 webserver using bottlepy
 
+copy to local and expand:
+ 
+wget https://github.com/masakik/rpi-config/archive/master.tar.gz
+
+tar -xvf master.tar.gz
