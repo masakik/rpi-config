@@ -1,4 +1,9 @@
 #!/bin/bash
+if [ $(uname -n) != 'raspberry' ]; then
+  echo "Não é raspberry! Nada a fazer."
+  exit 0;
+fi
+
 cd copy
 cp autoexec rfs rwfs /root/
 cd ..

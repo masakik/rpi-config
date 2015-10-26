@@ -1,3 +1,5 @@
 vim
 raspi-config
-unzip
+dosfstools
+python3
+python3-pip
