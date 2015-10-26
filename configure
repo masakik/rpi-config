@@ -1,5 +1,5 @@
 #!/bin/bash
-if [ $(uname -n) != 'raspberry' ]; then
+if [ $(uname -n) != 'raspberrypi' ]; then
   echo "Não é raspberry! Nada a fazer."
   exit 0;
 fi
