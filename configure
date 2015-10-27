@@ -3,31 +3,20 @@ if [ $(uname -n) != 'raspberrypi' ]; then
   echo "Não é raspberry! Nada a fazer."
   exit 0;
 fi
-
+source alias
+rw
 cd copy
 cp autoexec rfs rwfs /root/
 cd ..
-/root/rwfs
 
-now=`date +%s`
-apttime=`stat -c %Y /var/cache/apt/`
-
-diff=`expr $now - $apttime`
-
-if [ $diff -gt 1800 ]; then 
-  apt-get update
-fi
-#echo $diff
-
-apt-get install -y $(cat ./applist)
-
-source ./inc/bashrc
+source aptget
+source bashrc
 
 
 # prevent fsck from running
-tune2fs -c -1 -i 0 /dev/mmcblk0p2 # /
+#tune2fs -c -1 -i 0 /dev/mmcblk0p2 # /
 
 
-/root/rfs
+ro
 
 

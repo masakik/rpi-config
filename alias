@@ -1,0 +1,6 @@
+# alias to remount ro or rw
+alias ro='mount -o remount,ro / ; mount -o remount,ro /boot; fs_mode=$(mount | sed -n -e "s/^\
+/dev\/root on \/ .*(\(r[w|o]\).*/\1/p")'
+alias rw='mount -o remount,rw / ; mount -o remount,rw /boot; fs_mode=$(mount | sed -n -e "s/^\
+/dev\/root on \/ .*(\(r[w|o]\).*/\1/p")'
+
