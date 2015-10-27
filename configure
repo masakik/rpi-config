@@ -4,7 +4,7 @@ if [ $(uname -n) != 'raspberrypi' ]; then
   exit 0;
 fi
 source aliases
-$rw
+rw
 cd copy
 cp autoexec rfs rwfs /root/
 cd ..
@@ -17,6 +17,6 @@ source bashrc
 #tune2fs -c -1 -i 0 /dev/mmcblk0p2 # /
 
 
-$ro
+ro
 
 
