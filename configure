@@ -12,7 +12,7 @@ cd ..
 source packages
 source bashrc
 source modules
-
+source networking
 # prevent fsck from running
 #tune2fs -c -1 -i 0 /dev/mmcblk0p2 # /
 
