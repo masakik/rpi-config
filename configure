@@ -9,7 +9,7 @@ cd copy
 cp autoexec rfs rwfs /root/
 cd ..
 
-source aptget
+source packages
 source bashrc
 
 

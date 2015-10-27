@@ -9,5 +9,5 @@ if [ $diff -gt 1800 ]; then
 fi
 #echo $diff
 
-apt-get install -y $(cat applist)
+apt-get install -y $(cat packages.list)
 
